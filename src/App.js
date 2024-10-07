@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <>
-      <Navbar title="Okie" mode={mode} toggleMode={toggleMode} />
+      <Navbar mode={mode} toggleMode={toggleMode} />
       <div className="container my-3">
         <TextForm
           header="Write down the sentences you want to convert"
