@@ -6,11 +6,13 @@ export default function TextForm(props) {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
+    props.showAlert("Speaking ", "success");
   };
   const handleUpclick = () => {
     console.log("Button was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase", "success");
   };
   const ChangeHandler = (event) => {
     console.log("onChange");
@@ -18,13 +20,14 @@ export default function TextForm(props) {
   };
   const clearDisplay = () => {
     setText("");
+    props.showAlert("Cleared the text", "success");
   };
   //Main code begin
   const [text, setText] = useState("");
   return (
     <>
       <div
-        className="container"
+        className="container my-3"
         style={{ color: props.mode === `dark` ? `white` : `black` }}
       >
         <h1>{props.header}</h1>
