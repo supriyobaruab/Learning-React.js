@@ -56,8 +56,12 @@ export default function TextForm(props) {
       >
         <h1>Text Summary</h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters in the
-          text
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters in the text
         </p>
         <h3>Preview</h3>
         <p>{text.length > 0 ? text : "Write something to preview here"}</p>
